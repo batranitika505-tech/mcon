@@ -2,13 +2,16 @@
 
 @layer base {
   :root {
-    --primary: #121212;
-    --accent: #D4AF37;
-    /* Gold */
-    --accent-hover: #B8860B;
-    --secondary: #F5F5F5;
-    --text-main: #FFFFFF;
-    --text-muted: #A0A0A0;
+    --primary: #ffffff;
+    --secondary: #f9f9f9;
+    --dark: #1a1a1a;
+    --accent: #8AB339;
+    /* Natural Green */
+    --accent-hover: #72962d;
+    --text-main: #2c2c2c;
+    --text-muted: #666666;
+    --font-sans: 'Montserrat', sans-serif;
+    --font-serif: 'Playfair Display', serif;
   }
 
   * {
@@ -24,8 +27,9 @@
   body {
     background-color: var(--primary);
     color: var(--text-main);
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     overflow-x: hidden;
+    line-height: 1.6;
   }
 
   h1,
@@ -34,48 +38,65 @@
   h4,
   h5,
   h6 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
+    font-family: var(--font-sans);
+    font-weight: 400;
+    /* Clean, modern look */
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .serif {
+    font-family: var(--font-serif);
+    text-transform: none;
+    letter-spacing: normal;
   }
 }
 
 @layer utilities {
   .glass {
-    @apply bg-black/40 backdrop-blur-xl border border-white/5;
+    @apply bg-white/40 backdrop-blur-xl border border-black/5;
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-[#D4AF37];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-700 to-[#8AB339];
   }
 
   .accent-gradient {
-    @apply bg-gradient-to-r from-[#D4AF37] to-[#FFA500];
+    @apply bg-gradient-to-r from-[#8AB339] to-[#b4d27a];
   }
 
   .section-padding {
     @apply py-32 px-6 md:px-12 lg:px-24;
   }
+
+  .btn-primary {
+    @apply px-10 py-4 bg-[#8AB339] text-white font-semibold uppercase tracking-[0.2em] text-[10px] transition-all duration-300 hover:bg-[#72962d] shadow-lg hover:shadow-xl;
+  }
+
+  .btn-outline {
+    @apply px-10 py-4 border border-black/10 text-black font-semibold uppercase tracking-[0.2em] text-[10px] transition-all duration-300 hover:bg-black hover:text-white;
+  }
 }
 
 ::selection {
-  background-color: #D4AF37;
-  color: #000000;
+  background-color: #8AB339;
+  color: #ffffff;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #121212;
+  background: #f9f9f9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 4px;
+  background: #ddd;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #D4AF37;
+  background: #8AB339;
 }

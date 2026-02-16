@@ -26,7 +26,7 @@ const Intro = ({ onComplete }) => {
             initial={{ opacity: 1 }}
             animate={{ opacity: isTransitioning ? 0 : 1 }}
             transition={{ duration: 1, ease: 'easeInOut' }}
-            className="fixed inset-0 z-[200] bg-black flex items-center justify-center pointer-events-none"
+            className="fixed inset-0 z-[200] bg-white flex items-center justify-center pointer-events-none"
         >
             <div className="relative text-center w-full">
                 <motion.div
@@ -39,20 +39,20 @@ const Intro = ({ onComplete }) => {
                     transition={{
                         opacity: { duration: 1.2, ease: 'easeOut' },
                         scale: { duration: 1.2, ease: 'easeOut' },
-                        y: { duration: 1, ease: [0.22, 1, 0.36, 1] }
+                        y: { duration: 1, ease: [0.16, 1, 0.3, 1] }
                     }}
                     className="flex flex-col items-center"
                 >
-                    <h1 className="text-5xl md:text-8xl font-bold tracking-tighter text-white">
-                        MCON <span className="text-[#D4AF37]">BUILDRZ</span>
+                    <h1 className="text-5xl md:text-8xl font-light text-[#1a1a1a] tracking-tight">
+                        MCON <span className="font-bold text-[#8AB339]">BUILDRZ</span>
                     </h1>
                     <motion.p
                         initial={{ opacity: 0 }}
                         animate={{ opacity: isTransitioning ? 0 : 1 }}
                         transition={{ duration: 0.5 }}
-                        className="text-[#D4AF37] uppercase tracking-[0.5em] text-[10px] md:text-sm mt-6 font-bold"
+                        className="text-[#8AB339] uppercase font-bold tracking-[0.5em] text-[10px] md:text-xs mt-8"
                     >
-                        Building the Future
+                        Architecting Sustainable Futures
                     </motion.p>
                 </motion.div>
             </div>

@@ -34,15 +34,15 @@ const Testimonials = () => {
     }, []);
 
     return (
-        <section className="section-padding bg-black relative overflow-hidden">
+        <section className="section-padding bg-white relative overflow-hidden">
             {/* Decorative Background Icon */}
-            <Quote className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/5 w-[400px] h-[400px]" />
+            <Quote className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-black/5 w-[400px] h-[400px]" />
 
             <div className="max-w-4xl mx-auto relative z-10 text-center">
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    className="text-[#D4AF37] mb-12 flex justify-center"
+                    className="text-[#8AB339] mb-12 flex justify-center"
                 >
                     <Quote size={48} />
                 </motion.div>
@@ -57,7 +57,7 @@ const Testimonials = () => {
                             transition={{ duration: 0.5 }}
                             className="space-y-8"
                         >
-                            <p className="text-2xl md:text-3xl font-light italic leading-relaxed text-gray-200">
+                            <p className="text-2xl md:text-3xl font-light italic leading-relaxed text-[#444]">
                                 "{testimonials[index].text}"
                             </p>
 
@@ -65,10 +65,10 @@ const Testimonials = () => {
                                 <img
                                     src={testimonials[index].image}
                                     alt={testimonials[index].name}
-                                    className="w-16 h-16 rounded-full border-2 border-[#D4AF37] mb-4 object-cover"
+                                    className="w-16 h-16 rounded-full border-2 border-[#8AB339] mb-4 object-cover"
                                 />
-                                <h5 className="text-xl font-bold text-white">{testimonials[index].name}</h5>
-                                <p className="text-sm text-[#D4AF37] uppercase tracking-widest font-semibold">{testimonials[index].role}</p>
+                                <h5 className="text-xl font-bold text-[#1a1a1a]">{testimonials[index].name}</h5>
+                                <p className="text-sm text-[#8AB339] uppercase tracking-widest font-semibold">{testimonials[index].role}</p>
                             </div>
                         </motion.div>
                     </AnimatePresence>
@@ -80,7 +80,7 @@ const Testimonials = () => {
                         <button
                             key={i}
                             onClick={() => setIndex(i)}
-                            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === i ? 'bg-[#D4AF37] w-8' : 'bg-gray-700'
+                            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === i ? 'bg-[#8AB339] w-8' : 'bg-gray-200'
                                 }`}
                         />
                     ))}

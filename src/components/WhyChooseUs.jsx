@@ -6,7 +6,6 @@ const StatCounter = ({ value, label }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-    // Extract numeric part
     const numericValue = parseInt(value.replace(/[^0-9]/g, ''));
     const suffix = value.replace(/[0-9]/g, '');
 
@@ -27,12 +26,12 @@ const StatCounter = ({ value, label }) => {
     return (
         <div ref={ref} className="text-center">
             <div className="flex justify-center items-end mb-2">
-                <motion.span className="text-5xl md:text-7xl font-bold text-white tracking-tighter">
+                <motion.span className="text-5xl md:text-6xl font-normal text-[#1a1a1a] tracking-tight">
                     {displayValue}
                 </motion.span>
-                <span className="text-3xl md:text-5xl font-light text-[#D4AF37] ml-1 mb-1">{suffix}</span>
+                <span className="text-2xl md:text-3xl font-bold text-[#8AB339] ml-1 mb-2">{suffix}</span>
             </div>
-            <p className="text-gray-600 uppercase tracking-[0.3em] text-[10px] font-bold">{label}</p>
+            <p className="text-[#666] uppercase tracking-[0.3em] text-[9px] font-bold">{label}</p>
         </div>
     );
 };
@@ -62,25 +61,25 @@ const reasons = [
 
 const WhyChooseUs = () => {
     return (
-        <section className="py-32 px-6 md:px-12 lg:px-24 bg-zinc-900 overflow-hidden">
+        <section className="py-32 px-6 md:px-12 lg:px-24 bg-[#f9f9f9] overflow-hidden">
             <div className="max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-4 gap-16 lg:gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-12">
                     {reasons.map((reason, index) => (
                         <motion.div
                             key={reason.title}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 1, delay: index * 0.2, ease: [0.22, 1, 0.36, 1] }}
+                            transition={{ duration: 1, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
                             className="group"
                         >
-                            <div className="mb-10 text-[#D4AF37] group-hover:scale-110 transition-transform duration-700 ease-out origin-left opacity-60 group-hover:opacity-100">
+                            <div className="mb-10 text-[#8AB339] group-hover:scale-110 transition-transform duration-700 ease-out origin-left opacity-70 group-hover:opacity-100">
                                 {reason.icon}
                             </div>
-                            <h4 className="text-xl font-bold mb-6 tracking-tight text-white group-hover:text-[#D4AF37] transition-colors duration-500">
+                            <h4 className="text-xl font-bold mb-6 tracking-tight text-[#1a1a1a] group-hover:text-[#8AB339] transition-colors duration-500">
                                 {reason.title}
                             </h4>
-                            <p className="text-gray-500 font-light leading-relaxed text-sm">
+                            <p className="text-[#666] font-light leading-relaxed text-sm">
                                 {reason.text}
                             </p>
                         </motion.div>
@@ -88,7 +87,7 @@ const WhyChooseUs = () => {
                 </div>
 
                 {/* Dynamic Stats Row with Count Up */}
-                <div className="mt-32 pt-32 border-t border-white/5 grid grid-cols-2 lg:grid-cols-4 gap-16">
+                <div className="mt-32 pt-32 border-t border-black/5 grid grid-cols-2 lg:grid-cols-4 gap-16">
                     <StatCounter value="450+" label="Projects Built" />
                     <StatCounter value="1200" label="Happy Clients" />
                     <StatCounter value="35" label="Awards Won" />

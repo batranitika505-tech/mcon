@@ -27,63 +27,108 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: 'easeOut' }}
-            className={`fixed w-full z-50 transition-all duration-700 ease-in-out ${scrolled ? 'bg-black/90 backdrop-blur-xl py-4 shadow-2xl border-b border-white/5' : 'bg-transparent py-8'
+            className={`fixed w-full z-[100] transition-all duration-700 ease-in-out ${scrolled ? 'bg-white/90 backdrop-blur-xl py-4 shadow-xl border-b border-black/5' : 'bg-transparent py-10'
                 }`}
         >
-            <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-                <div className="text-2xl font-bold tracking-tighter">
-                    <span className="text-white">MCON</span>
-                    <span className="text-[#D4AF37]"> BUILDRZ</span>
-                </div>
+            <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24 flex justify-between items-center">
+                {/* Brand Logo - Top Left with Animation */}
+                <motion.div
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1.2, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    className="flex flex-col"
+                >
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+                        className="text-3xl md:text-5xl font-bold tracking-tight"
+                    >
+                        <span className={scrolled ? "text-[#1a1a1a] transition-colors" : "text-white transition-colors"}>MCON</span>
+                        <span className="text-[#8AB339]"> BUILDRZ</span>
+                    </motion.div>
+                    <motion.span
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1, delay: 1.5 }}
+                        className={`text-[11px] uppercase tracking-[0.6em] font-bold mt-2 ${scrolled ? "text-[#666]" : "text-white/60"}`}
+                    >
+                        Sustainable Luxury Architecture
+                    </motion.span>
+                </motion.div>
 
-                {/* Desktop Links */}
-                <div className="hidden md:flex space-x-12 items-center">
-                    {navLinks.map((link) => (
-                        <a
-                            key={link.name}
-                            href={link.href}
-                            className="text-[11px] uppercase tracking-[0.2em] font-bold text-gray-400 hover:text-[#D4AF37] transition-all duration-300 relative group"
-                        >
-                            {link.name}
-                            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#D4AF37] transition-all duration-300 group-hover:w-full" />
-                        </a>
-                    ))}
-                    <button className="px-6 py-2 border border-[#D4AF37]/50 text-[#D4AF37] text-[10px] font-bold uppercase tracking-widest hover:bg-[#D4AF37] hover:text-black transition-all duration-500">
-                        Get Quote
-                    </button>
-                </div>
-
-                {/* Mobile Toggle */}
-                <div className="md:hidden">
-                    <button onClick={() => setIsOpen(!isOpen)} className="text-white">
-                        {isOpen ? <X size={28} /> : <Menu size={28} />}
+                {/* Purely Minimal Hamburger Menu - Top Right */}
+                <div className="flex items-center space-x-12">
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className={`group flex items-center space-x-4 transition-all duration-300 ${scrolled ? "text-[#1a1a1a]" : "text-white"}`}
+                    >
+                        <span className="text-[10px] uppercase tracking-[0.3em] font-bold hidden md:block group-hover:text-[#8AB339]">Menu</span>
+                        <div className="relative w-8 h-4 flex flex-col justify-between">
+                            <span className={`w-full h-[1.5px] transition-all duration-300 ${scrolled ? "bg-[#1a1a1a]" : "bg-white"} group-hover:bg-[#8AB339]`} />
+                            <span className={`w-3/4 h-[1.5px] self-end transition-all duration-300 ${scrolled ? "bg-[#1a1a1a]" : "bg-white"} group-hover:bg-[#8AB339] group-hover:w-full`} />
+                        </div>
                     </button>
                 </div>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Luxurious Full Screen Overlay Menu */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, x: '100%' }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: '100%' }}
-                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        className="fixed inset-0 bg-black z-40 flex flex-col items-center justify-center space-y-12 md:hidden"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="fixed inset-0 bg-white z-[200] flex flex-col md:flex-row"
                     >
-                        {navLinks.map((link) => (
-                            <a
-                                key={link.name}
-                                href={link.href}
+                        {/* Left Side - Visual/Brand Panel */}
+                        <div className="hidden md:flex w-1/2 bg-[#f9f9f9] items-center justify-center p-24 border-r border-black/5">
+                            <div className="max-w-md">
+                                <h3 className="text-[#8AB339] uppercase tracking-[0.4em] font-bold text-xs mb-8">Architecting the future</h3>
+                                <p className="text-4xl lg:text-5xl font-light text-[#1a1a1a] leading-tight mb-12">
+                                    Creating spaces where <span className="serif italic">luxury</span> meets <span className="text-[#8AB339]">sustainability</span>.
+                                </p>
+                                <div className="h-[1px] w-24 bg-[#8AB339]" />
+                            </div>
+                        </div>
+
+                        {/* Right Side - Links Panel */}
+                        <div className="w-full md:w-1/2 flex flex-col justify-center px-12 md:px-24 relative">
+                            <button
                                 onClick={() => setIsOpen(false)}
-                                className="text-4xl font-bold text-white hover:text-[#D4AF37] transition-colors"
+                                className="absolute top-12 right-12 text-[#1a1a1a] hover:text-[#8AB339] transition-colors"
                             >
-                                {link.name}
-                            </a>
-                        ))}
-                        <button className="px-10 py-4 bg-[#D4AF37] text-black font-bold uppercase tracking-widest">
-                            Get Quote
-                        </button>
+                                <X size={32} strokeWidth={1.5} />
+                            </button>
+
+                            <nav className="space-y-6 md:space-y-8">
+                                {navLinks.map((link, i) => (
+                                    <motion.div
+                                        key={link.name}
+                                        initial={{ opacity: 0, x: 50 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: 0.2 + (i * 0.1), duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                    >
+                                        <a
+                                            href={link.href}
+                                            onClick={() => setIsOpen(false)}
+                                            className="group flex items-center space-x-8"
+                                        >
+                                            <span className="text-xs md:text-sm font-bold text-[#8AB339] opacity-40 group-hover:opacity-100 transition-opacity">0{i + 1}</span>
+                                            <span className="text-4xl md:text-6xl lg:text-7xl font-light text-[#1a1a1a] group-hover:text-[#8AB339] transition-all duration-300 group-hover:translate-x-4">
+                                                {link.name}
+                                            </span>
+                                        </a>
+                                    </motion.div>
+                                ))}
+                            </nav>
+
+                            <div className="mt-20 flex flex-col space-y-4">
+                                <p className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#999]">Get in touch</p>
+                                <a href="mailto:hello@mconbuildrz.com" className="text-lg font-light text-[#1a1a1a] hover:text-[#8AB339] transition-colors line-clamp-1">hello@mconbuildrz.com</a>
+                            </div>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>

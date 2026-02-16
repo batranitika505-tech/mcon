@@ -3,84 +3,88 @@ import { motion } from 'framer-motion';
 
 const Hero = ({ backgroundImage }) => {
     return (
-        <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black">
-            {/* Background with slow cinematic zoom - Fades in during Phase 2 */}
+        <section className="relative h-screen w-full flex items-center overflow-hidden bg-white">
+            {/* Background with slow cinematic zoom */}
             <motion.div
                 initial={{ opacity: 0, scale: 1.1 }}
-                animate={{ opacity: 0.6, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1.05 }}
                 transition={{
-                    opacity: { duration: 2, ease: 'easeOut' },
-                    scale: { duration: 10, ease: 'linear', repeat: Infinity, repeatType: 'reverse' }
+                    opacity: { duration: 1.5, ease: 'easeOut' },
+                    scale: { duration: 25, ease: 'linear', repeat: Infinity, repeatType: 'reverse' }
                 }}
                 className="absolute inset-0 z-0"
             >
                 <img
                     src={backgroundImage}
-                    alt="Modern Architecture"
+                    alt="Sustainable Luxury Architecture"
                     className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black" />
+                <div className="absolute inset-0 bg-black/10" />
             </motion.div>
 
-            {/* Content - Hero Title enters during Phase 2 */}
-            <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-                <motion.p
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 0.8, ease: 'easeOut' }}
-                    className="text-[#D4AF37] uppercase tracking-[0.6em] font-semibold mb-6 text-xs md:text-sm"
-                >
-                    Engineering Excellence
-                </motion.p>
+            {/* Content Container - Shifted Down and Right */}
+            <div className="relative z-10 w-full h-full flex items-end justify-end pr-0 pb-20 md:pb-32 pl-6 md:pl-12 lg:pl-24">
 
-                <motion.h1
+                {/* Floating Box - Compact & Grounded */}
+                <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                    className="text-6xl md:text-[9rem] font-bold text-white mb-10 tracking-tighter leading-none"
+                    transition={{ duration: 1.5, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    className="bg-white p-8 md:p-10 lg:p-12 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] max-w-full lg:max-w-[850px]"
                 >
-                    MCON <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#FFA500]">BUILDRZ</span>
-                </motion.h1>
+                    <div className="flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-16">
+                        {/* Refined Typography */}
+                        <div className="flex-1">
+                            <h2 className="text-[1.8rem] md:text-[2.4rem] lg:text-[3.2rem] font-light leading-[1.1] tracking-tight text-[#1a1a1a]">
+                                Building <br />
+                                <span className="text-[#8AB339]">sanctuaries</span> for <br />
+                                the modern world.
+                            </h2>
+                        </div>
 
-                <motion.p
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 1, ease: 'easeOut' }}
-                    className="text-gray-300 text-lg md:text-2xl max-w-3xl mx-auto mb-16 font-light leading-relaxed tracking-wide"
-                >
-                    Transforming visions into architectural reality. We build high-end residential and commercial spaces that define the future of living.
-                </motion.p>
+                        <div className="w-full lg:w-[320px] flex flex-col space-y-8">
+                            <p className="text-[#666] text-sm md:text-base font-light leading-relaxed">
+                                Transforming visions into architectural reality. We build high-end residential and commercial spaces that define the future.
+                            </p>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 1.2, ease: 'easeOut' }}
-                    className="flex flex-col md:flex-row gap-6 justify-center"
-                >
-                    <motion.button
-                        whileHover={{ scale: 1.04, backgroundColor: '#FFFFFF', color: '#000000', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}
-                        transition={{ duration: 0.4, ease: 'easeOut' }}
-                        className="px-12 py-5 bg-[#D4AF37] text-black font-bold uppercase tracking-[0.2em] text-xs transition-all duration-300 shadow-xl"
-                    >
-                        Explore Projects
-                    </motion.button>
-                    <motion.button
-                        whileHover={{ scale: 1.04, backgroundColor: '#FFFFFF', color: '#000000', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}
-                        transition={{ duration: 0.4, ease: 'easeOut' }}
-                        className="px-12 py-5 border border-white/20 text-white font-bold uppercase tracking-[0.2em] text-xs transition-all duration-300 bg-white/5 backdrop-blur-sm"
-                    >
-                        Contact Us
-                    </motion.button>
+                            <motion.button
+                                whileHover={{ x: 10 }}
+                                className="flex items-center space-x-6 group text-[#8AB339] font-bold uppercase tracking-[0.4em] text-[9px] whitespace-nowrap"
+                            >
+                                <span>Discover Our Work</span>
+                                <div className="h-[1px] w-12 bg-[#8AB339] transition-all duration-300 group-hover:w-20" />
+                            </motion.button>
+                        </div>
+                    </div>
                 </motion.div>
             </div>
 
-            {/* Scroll indicator */}
+            {/* Minimal Scroll Indicator */}
             <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 100, opacity: 1 }}
-                transition={{ delay: 2, duration: 1.5, ease: 'easeInOut' }}
-                className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1px] bg-gradient-to-b from-[#D4AF37] to-transparent"
-            />
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2, duration: 1 }}
+                className="absolute bottom-12 left-12 z-20"
+            >
+                <div className="flex items-center space-x-6">
+                    <div className="w-[1px] h-24 bg-white/20 relative overflow-hidden">
+                        <motion.div
+                            animate={{ y: [-100, 100] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                            className="absolute top-0 left-0 w-full h-full bg-white/60"
+                        />
+                    </div>
+                    <span className="text-white text-[9px] uppercase tracking-[0.6em] font-medium vertical-text opacity-60">Scroll to Explore</span>
+                </div>
+            </motion.div>
+
+            <style dangerouslySetInnerHTML={{
+                __html: `
+                .vertical-text {
+                    writing-mode: vertical-rl;
+                    transform: rotate(180deg);
+                }
+            `}} />
         </section>
     );
 };

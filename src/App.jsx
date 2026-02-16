@@ -59,7 +59,7 @@ function App() {
   }, [contentVisible]);
 
   return (
-    <main className="bg-black min-h-screen text-white selection:bg-[#D4AF37] selection:text-black">
+    <main className="bg-white min-h-screen text-[#2c2c2c] selection:bg-[#8AB339] selection:text-white">
       <AnimatePresence>
         {showIntro && (
           <Intro key="intro" onComplete={() => setShowIntro(false)} />
