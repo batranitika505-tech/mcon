@@ -4,10 +4,11 @@
   :root {
     --primary: #ffffff;
     --secondary: #f9f9f9;
-    --dark: #1a1a1a;
-    --accent: #8AB339;
-    /* Natural Green */
-    --accent-hover: #72962d;
+    --dark: #333F48;
+    /* Logo Slate */
+    --accent: #F58220;
+    /* Logo Orange */
+    --accent-hover: #d46b13;
     --text-main: #2c2c2c;
     --text-muted: #666666;
     --font-sans: 'Montserrat', sans-serif;
@@ -41,8 +42,7 @@
     font-family: var(--font-sans);
     font-weight: 400;
     /* Clean, modern look */
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    letter-spacing: 0.02em;
   }
 
   .serif {
@@ -58,11 +58,11 @@
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-700 to-[#8AB339];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-700 to-[#F58220];
   }
 
   .accent-gradient {
-    @apply bg-gradient-to-r from-[#8AB339] to-[#b4d27a];
+    @apply bg-gradient-to-r from-[#F58220] to-[#ff9e4a];
   }
 
   .section-padding {
@@ -70,7 +70,7 @@
   }
 
   .btn-primary {
-    @apply px-10 py-4 bg-[#8AB339] text-white font-semibold uppercase tracking-[0.2em] text-[10px] transition-all duration-300 hover:bg-[#72962d] shadow-lg hover:shadow-xl;
+    @apply px-10 py-4 bg-[#F58220] text-white font-semibold uppercase tracking-[0.2em] text-[10px] transition-all duration-300 hover:bg-[#d46b13] shadow-lg hover:shadow-xl;
   }
 
   .btn-outline {
@@ -79,7 +79,7 @@
 }
 
 ::selection {
-  background-color: #8AB339;
+  background-color: #F58220;
   color: #ffffff;
 }
 
@@ -98,5 +98,5 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #8AB339;
+  background: #F58220;
 }

@@ -13,6 +13,7 @@ import WhyChooseUs from './components/WhyChooseUs';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Transformations from './components/Transformations';
 
 // Assets
 import heroImg from './assets/hero.png';
@@ -26,15 +27,10 @@ function App() {
   const [showIntro, setShowIntro] = useState(true);
   const [contentVisible, setContentVisible] = useState(false);
 
-  useEffect(() => {
-    // Reveal content slightly after intro starts its phase 2
-    // The intro stays for 1.8s then animates for 1s.
-    const timer = setTimeout(() => {
-      setContentVisible(true);
-    }, 1800);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const handleIntroComplete = () => {
+    setShowIntro(false);
+    setContentVisible(true);
+  };
 
   useEffect(() => {
     if (contentVisible) {
@@ -59,10 +55,10 @@ function App() {
   }, [contentVisible]);
 
   return (
-    <main className="bg-white min-h-screen text-[#2c2c2c] selection:bg-[#8AB339] selection:text-white">
+    <main className="bg-white min-h-screen text-[#2c2c2c] selection:bg-[#F58220] selection:text-white">
       <AnimatePresence>
         {showIntro && (
-          <Intro key="intro" onComplete={() => setShowIntro(false)} />
+          <Intro key="intro" onComplete={handleIntroComplete} />
         )}
       </AnimatePresence>
 
@@ -73,6 +69,7 @@ function App() {
           <About image={aboutImg} />
           <Services />
           <Projects residencyImg={project1Img} commercialImg={project2Img} />
+          <Transformations />
           <WhyChooseUs />
           <Testimonials />
           <Contact />

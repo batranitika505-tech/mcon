@@ -41,7 +41,7 @@ const Projects = ({ residencyImg, commercialImg }) => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, ease: 'easeOut' }}
-                            className="text-[#8AB339] uppercase tracking-[0.4em] font-bold text-xs"
+                            className="text-[#F58220] uppercase tracking-[0.4em] font-bold text-xs"
                         >
                             Portfolio
                         </motion.h2>
@@ -50,9 +50,9 @@ const Projects = ({ residencyImg, commercialImg }) => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: 0.15, ease: 'easeOut' }}
-                            className="text-5xl md:text-7xl font-bold tracking-tight text-[#1a1a1a]"
+                            className="text-5xl md:text-7xl font-bold tracking-tight text-[#333F48]"
                         >
-                            Legendary <span className="serif text-[#8AB339] font-light italic">Manifestations</span>
+                            Legendary <span className="serif text-[#F58220] font-light italic">Manifestations</span>
                         </motion.h3>
                     </div>
                 </div>
@@ -88,7 +88,7 @@ const Projects = ({ residencyImg, commercialImg }) => {
                                     transition={{ duration: 0.8, delay: 0.4 + index * 0.1 }}
                                     className="space-y-4"
                                 >
-                                    <p className="text-[#8AB339] text-[10px] font-bold uppercase tracking-[0.3em]">
+                                    <p className="text-[#F58220] text-[10px] font-bold uppercase tracking-[0.3em]">
                                         {project.category}
                                     </p>
                                     <h4 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
@@ -96,7 +96,7 @@ const Projects = ({ residencyImg, commercialImg }) => {
                                     </h4>
 
                                     <motion.div
-                                        className="h-[1.5px] w-12 bg-[#8AB339] origin-left group-hover:w-32 transition-all duration-700 ease-out"
+                                        className="h-[1.5px] w-12 bg-[#F58220] origin-left group-hover:w-32 transition-all duration-700 ease-out"
                                     />
 
                                     <div className="overflow-hidden">

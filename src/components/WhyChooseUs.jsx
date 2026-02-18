@@ -26,10 +26,10 @@ const StatCounter = ({ value, label }) => {
     return (
         <div ref={ref} className="text-center">
             <div className="flex justify-center items-end mb-2">
-                <motion.span className="text-5xl md:text-6xl font-normal text-[#1a1a1a] tracking-tight">
+                <motion.span className="text-5xl md:text-6xl font-normal text-[#333F48] tracking-tight">
                     {displayValue}
                 </motion.span>
-                <span className="text-2xl md:text-3xl font-bold text-[#8AB339] ml-1 mb-2">{suffix}</span>
+                <span className="text-2xl md:text-3xl font-bold text-[#F58220] ml-1 mb-2">{suffix}</span>
             </div>
             <p className="text-[#666] uppercase tracking-[0.3em] text-[9px] font-bold">{label}</p>
         </div>
@@ -73,10 +73,10 @@ const WhyChooseUs = () => {
                             transition={{ duration: 1, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
                             className="group"
                         >
-                            <div className="mb-10 text-[#8AB339] group-hover:scale-110 transition-transform duration-700 ease-out origin-left opacity-70 group-hover:opacity-100">
+                            <div className="mb-10 text-[#F58220] group-hover:scale-110 transition-transform duration-700 ease-out origin-left opacity-70 group-hover:opacity-100">
                                 {reason.icon}
                             </div>
-                            <h4 className="text-xl font-bold mb-6 tracking-tight text-[#1a1a1a] group-hover:text-[#8AB339] transition-colors duration-500">
+                            <h4 className="text-xl font-bold mb-6 tracking-tight text-[#333F48] group-hover:text-[#F58220] transition-colors duration-500">
                                 {reason.title}
                             </h4>
                             <p className="text-[#666] font-light leading-relaxed text-sm">

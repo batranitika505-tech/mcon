@@ -1,26 +1,51 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const Hero = ({ backgroundImage }) => {
+const heroImages = [
+    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop'
+];
+
+const Hero = () => {
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIndex((prev) => (prev + 1) % heroImages.length);
+        }, 2500); // Speed up interval to 2.5s
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <section className="relative h-screen w-full flex items-center overflow-hidden bg-white">
-            {/* Background with slow cinematic zoom */}
-            <motion.div
-                initial={{ opacity: 0, scale: 1.1 }}
-                animate={{ opacity: 1, scale: 1.05 }}
-                transition={{
-                    opacity: { duration: 1.5, ease: 'easeOut' },
-                    scale: { duration: 25, ease: 'linear', repeat: Infinity, repeatType: 'reverse' }
-                }}
-                className="absolute inset-0 z-0"
-            >
-                <img
-                    src={backgroundImage}
-                    alt="Sustainable Luxury Architecture"
-                    className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black/10" />
-            </motion.div>
+            {/* Background Sliding Carousel */}
+            <div className="absolute inset-0 z-0 bg-black">
+                <AnimatePresence initial={false}>
+                    <motion.div
+                        key={index}
+                        initial={{ x: '100%' }}
+                        animate={{ x: 0 }}
+                        exit={{ x: '-100%' }}
+                        transition={{ duration: 1.0, delay: 0, ease: [0.16, 1, 0.3, 1] }}
+                        className="absolute inset-0 w-full h-full"
+                    >
+                        <motion.div
+                            initial={{ scale: 1.1 }}
+                            animate={{ scale: 1.05 }}
+                            transition={{ duration: 10, ease: 'linear', repeat: Infinity, repeatType: 'reverse' }}
+                            className="w-full h-full"
+                        >
+                            <img
+                                src={heroImages[index]}
+                                alt="Sustainable Luxury Architecture"
+                                className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-black/20" />
+                        </motion.div>
+                    </motion.div>
+                </AnimatePresence>
+            </div>
 
             {/* Content Container - Shifted Down and Right */}
             <div className="relative z-10 w-full h-full flex items-end justify-end pr-0 pb-20 md:pb-32 pl-6 md:pl-12 lg:pl-24">
@@ -35,24 +60,24 @@ const Hero = ({ backgroundImage }) => {
                     <div className="flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-16">
                         {/* Refined Typography */}
                         <div className="flex-1">
-                            <h2 className="text-[1.8rem] md:text-[2.4rem] lg:text-[3.2rem] font-light leading-[1.1] tracking-tight text-[#1a1a1a]">
-                                Building <br />
-                                <span className="text-[#8AB339]">sanctuaries</span> for <br />
-                                the modern world.
+                            <h2 className="text-[1.8rem] md:text-[2.4rem] lg:text-[3.2rem] font-light leading-[1.1] tracking-tight text-[#333F48]">
+                                Redefining <br />
+                                <span className="text-[#F58220]">spaces</span> through <br />
+                                custom renovations.
                             </h2>
                         </div>
 
                         <div className="w-full lg:w-[320px] flex flex-col space-y-8">
                             <p className="text-[#666] text-sm md:text-base font-light leading-relaxed">
-                                Transforming visions into architectural reality. We build high-end residential and commercial spaces that define the future.
+                                Specializing in high-end renovations and custom builds. We bring new life to every structure we touch with precision and artistry.
                             </p>
 
                             <motion.button
                                 whileHover={{ x: 10 }}
-                                className="flex items-center space-x-6 group text-[#8AB339] font-bold uppercase tracking-[0.4em] text-[9px] whitespace-nowrap"
+                                className="flex items-center space-x-6 group text-[#F58220] font-bold uppercase tracking-[0.4em] text-[9px] whitespace-nowrap"
                             >
                                 <span>Discover Our Work</span>
-                                <div className="h-[1px] w-12 bg-[#8AB339] transition-all duration-300 group-hover:w-20" />
+                                <div className="h-[1px] w-12 bg-[#F58220] transition-all duration-300 group-hover:w-20" />
                             </motion.button>
                         </div>
                     </div>

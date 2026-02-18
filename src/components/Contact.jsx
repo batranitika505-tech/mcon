@@ -13,7 +13,7 @@ const Contact = () => {
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="text-[#8AB339] uppercase tracking-widest font-bold text-sm mb-4"
+                            className="text-[#F58220] uppercase tracking-widest font-bold text-sm mb-4"
                         >
                             Get In Touch
                         </motion.h2>
@@ -22,10 +22,10 @@ const Contact = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 }}
-                            className="text-4xl md:text-6xl font-bold mb-8 text-[#1a1a1a]"
+                            className="text-4xl md:text-6xl font-bold mb-8 text-[#333F48]"
                         >
                             Let's Build Something <br />
-                            <span className="serif text-[#8AB339] italic">Exceptional.</span>
+                            <span className="serif text-[#F58220] italic">Exceptional.</span>
                         </motion.h3>
                         <p className="text-[#555] text-lg mb-12 max-w-md font-light">
                             Whether you have a vision for a luxury home or a large-scale commercial project, our team of experts is ready to assist.
@@ -45,12 +45,12 @@ const Contact = () => {
                                     transition={{ delay: 0.4 + i * 0.1 }}
                                     className="flex items-center space-x-6 group"
                                 >
-                                    <div className="w-12 h-12 bg-[#f9f9f9] flex items-center justify-center text-[#8AB339] group-hover:bg-[#8AB339] group-hover:text-white transition-all duration-300 rounded-full">
+                                    <div className="w-12 h-12 bg-[#f9f9f9] flex items-center justify-center text-[#F58220] group-hover:bg-[#F58220] group-hover:text-white transition-all duration-300 rounded-full">
                                         {item.icon}
                                     </div>
                                     <div>
-                                        <p className="text-xs uppercase tracking-widest text-[#8AB339] font-bold mb-1">{item.title}</p>
-                                        <p className="text-lg font-medium text-[#1a1a1a]">{item.detail}</p>
+                                        <p className="text-xs uppercase tracking-widest text-[#F58220] font-bold mb-1">{item.title}</p>
+                                        <p className="text-lg font-medium text-[#333F48]">{item.detail}</p>
                                     </div>
                                 </motion.div>
                             ))}
@@ -70,7 +70,7 @@ const Contact = () => {
                                     <label className="text-xs uppercase tracking-widest text-gray-400 font-bold">First Name</label>
                                     <input
                                         type="text"
-                                        className="w-full bg-white border border-gray-200 p-4 text-[#1a1a1a] outline-none focus:border-[#8AB339] transition-colors"
+                                        className="w-full bg-white border border-gray-200 p-4 text-[#333F48] outline-none focus:border-[#F58220] transition-colors"
                                         placeholder="John"
                                     />
                                 </div>
@@ -78,7 +78,7 @@ const Contact = () => {
                                     <label className="text-xs uppercase tracking-widest text-gray-400 font-bold">Last Name</label>
                                     <input
                                         type="text"
-                                        className="w-full bg-white border border-gray-200 p-4 text-[#1a1a1a] outline-none focus:border-[#8AB339] transition-colors"
+                                        className="w-full bg-white border border-gray-200 p-4 text-[#333F48] outline-none focus:border-[#F58220] transition-colors"
                                         placeholder="Doe"
                                     />
                                 </div>
@@ -88,7 +88,7 @@ const Contact = () => {
                                 <label className="text-xs uppercase tracking-widest text-gray-400 font-bold">Email Address</label>
                                 <input
                                     type="email"
-                                    className="w-full bg-white border border-gray-200 p-4 text-[#1a1a1a] outline-none focus:border-[#8AB339] transition-colors"
+                                    className="w-full bg-white border border-gray-200 p-4 text-[#333F48] outline-none focus:border-[#F58220] transition-colors"
                                     placeholder="john@example.com"
                                 />
                             </div>
@@ -96,7 +96,7 @@ const Contact = () => {
                             <div className="space-y-2">
                                 <label className="text-xs uppercase tracking-widest text-gray-400 font-bold">Message</label>
                                 <textarea
-                                    className="w-full bg-white border border-gray-200 p-4 text-[#1a1a1a] outline-none focus:border-[#8AB339] transition-colors h-32"
+                                    className="w-full bg-white border border-gray-200 p-4 text-[#333F48] outline-none focus:border-[#F58220] transition-colors h-32"
                                     placeholder="Tell us about your project..."
                                 />
                             </div>

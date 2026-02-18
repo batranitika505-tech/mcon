@@ -5,23 +5,23 @@ import { Building2, Home, Layout, PencilRuler } from 'lucide-react';
 const services = [
     {
         icon: <Home size={32} strokeWidth={1} />,
-        title: 'Residential',
-        description: 'Bespoke luxury homes and high-end residential complexes tailored to modern living.',
+        title: 'Residential Renovations',
+        description: 'Complete remodeling of premium homes, specializing in luxury kitchen and bath transformations.',
     },
     {
         icon: <Building2 size={32} strokeWidth={1} />,
-        title: 'Commercial',
-        description: 'State-of-the-art office spaces, shopping complexes, and industrial warehouses.',
+        title: 'Custom Builds',
+        description: 'Bespoke residential construction tailored to your unique lifestyle and architectural vision.',
     },
     {
         icon: <PencilRuler size={32} strokeWidth={1} />,
-        title: 'Architecture',
-        description: 'Innovative architectural planning and structural design that pushes boundaries.',
+        title: 'Structural Remodeling',
+        description: 'Expert structural changes and expansions to modernize and improve existing floor plans.',
     },
     {
         icon: <Layout size={32} strokeWidth={1} />,
-        title: 'Renovation',
-        description: 'Exquisite remodeling and restoration of historic and modern structures.',
+        title: 'Modern Restoration',
+        description: 'Artfully restoring historic and older structures while integrating modern technology.',
     },
 ];
 
@@ -35,7 +35,7 @@ const Services = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, ease: 'easeOut' }}
-                        className="text-[#8AB339] uppercase tracking-[0.4em] font-bold text-xs mb-8"
+                        className="text-[#F58220] uppercase tracking-[0.4em] font-bold text-xs mb-8"
                     >
                         Our Capabilities
                     </motion.h2>
@@ -44,9 +44,9 @@ const Services = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.15, ease: 'easeOut' }}
-                        className="text-5xl md:text-7xl font-bold tracking-tight text-[#1a1a1a]"
+                        className="text-5xl md:text-7xl font-bold tracking-tight text-[#333F48]"
                     >
-                        Precision <span className="serif text-[#8AB339] font-light italic">&</span> Expertise
+                        Precision <span className="serif text-[#F58220] font-light italic">&</span> Expertise
                     </motion.h3>
                 </div>
 
@@ -58,14 +58,14 @@ const Services = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.9, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
-                            className="group relative p-12 bg-white hover:bg-[#8AB339] transition-all duration-700 flex flex-col justify-between aspect-square"
+                            className="group relative p-12 bg-white hover:bg-[#F58220] transition-all duration-700 flex flex-col justify-between h-full min-h-[400px]"
                         >
                             <div className="space-y-8">
-                                <div className="text-[#8AB339] group-hover:text-white group-hover:scale-110 transition-all duration-700 ease-out origin-left">
+                                <div className="text-[#F58220] group-hover:text-white group-hover:scale-110 transition-all duration-700 ease-out origin-left">
                                     {service.icon}
                                 </div>
                                 <div className="space-y-4">
-                                    <h4 className="text-2xl font-bold tracking-tight text-[#1a1a1a] group-hover:text-white transition-colors duration-500">{service.title}</h4>
+                                    <h4 className="text-2xl font-bold tracking-tight text-[#333F48] group-hover:text-white transition-colors duration-500">{service.title}</h4>
                                     <p className="text-[#666] group-hover:text-white/80 font-light leading-relaxed text-sm transition-colors duration-500">
                                         {service.description}
                                     </p>
@@ -82,7 +82,7 @@ const Services = () => {
                             <motion.div
                                 whileHover={{ opacity: 1 }}
                                 initial={{ opacity: 0 }}
-                                className="absolute inset-0 border border-[#8AB339]/20 pointer-events-none transition-opacity duration-700"
+                                className="absolute inset-0 border border-[#F58220]/20 pointer-events-none transition-opacity duration-700"
                             />
                         </motion.div>
                     ))}

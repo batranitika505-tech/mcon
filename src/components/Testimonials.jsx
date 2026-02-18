@@ -42,7 +42,7 @@ const Testimonials = () => {
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    className="text-[#8AB339] mb-12 flex justify-center"
+                    className="text-[#F58220] mb-12 flex justify-center"
                 >
                     <Quote size={48} />
                 </motion.div>
@@ -65,10 +65,10 @@ const Testimonials = () => {
                                 <img
                                     src={testimonials[index].image}
                                     alt={testimonials[index].name}
-                                    className="w-16 h-16 rounded-full border-2 border-[#8AB339] mb-4 object-cover"
+                                    className="w-16 h-16 rounded-full border-2 border-[#F58220] mb-4 object-cover"
                                 />
-                                <h5 className="text-xl font-bold text-[#1a1a1a]">{testimonials[index].name}</h5>
-                                <p className="text-sm text-[#8AB339] uppercase tracking-widest font-semibold">{testimonials[index].role}</p>
+                                <h5 className="text-xl font-bold text-[#333F48]">{testimonials[index].name}</h5>
+                                <p className="text-sm text-[#F58220] uppercase tracking-widest font-semibold">{testimonials[index].role}</p>
                             </div>
                         </motion.div>
                     </AnimatePresence>
@@ -80,7 +80,7 @@ const Testimonials = () => {
                         <button
                             key={i}
                             onClick={() => setIndex(i)}
-                            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === i ? 'bg-[#8AB339] w-8' : 'bg-gray-200'
+                            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === i ? 'bg-[#F58220] w-8' : 'bg-gray-200'
                                 }`}
                         />
                     ))}
