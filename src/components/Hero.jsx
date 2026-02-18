@@ -13,7 +13,7 @@ const Hero = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex((prev) => (prev + 1) % heroImages.length);
-        }, 2500); // Speed up interval to 2.5s
+        }, 5000); // 5s feels more premium than 2.5s for residential luxury
         return () => clearInterval(interval);
     }, []);
 
@@ -21,19 +21,19 @@ const Hero = () => {
         <section className="relative h-screen w-full flex items-center overflow-hidden bg-white">
             {/* Background Sliding Carousel */}
             <div className="absolute inset-0 z-0 bg-black">
-                <AnimatePresence initial={false}>
+                <AnimatePresence initial={false} mode="popLayout">
                     <motion.div
                         key={index}
-                        initial={{ x: '100%' }}
-                        animate={{ x: 0 }}
-                        exit={{ x: '-100%' }}
-                        transition={{ duration: 1.0, delay: 0, ease: [0.16, 1, 0.3, 1] }}
+                        initial={{ x: '100%', opacity: 1 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        exit={{ x: '-100%', opacity: 1 }}
+                        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                         className="absolute inset-0 w-full h-full"
                     >
                         <motion.div
                             initial={{ scale: 1.1 }}
                             animate={{ scale: 1.05 }}
-                            transition={{ duration: 10, ease: 'linear', repeat: Infinity, repeatType: 'reverse' }}
+                            transition={{ duration: 10, ease: 'linear' }}
                             className="w-full h-full"
                         >
                             <img
@@ -47,14 +47,18 @@ const Hero = () => {
                 </AnimatePresence>
             </div>
 
-            {/* Content Container - Shifted Down and Right */}
+            {/* Content Container */}
             <div className="relative z-10 w-full h-full flex items-end justify-end pr-0 pb-20 md:pb-32 pl-6 md:pl-12 lg:pl-24">
 
-                {/* Floating Box - Compact & Grounded */}
+                {/* Floating Box - Snappier revealed after Intro */}
                 <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1.5, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    initial={{ opacity: 0, y: 30, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{
+                        duration: 1.1,
+                        delay: 0.3, // Shorter delay since Intro is faster
+                        ease: [0.22, 1, 0.36, 1]
+                    }}
                     className="bg-white p-8 md:p-10 lg:p-12 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] max-w-full lg:max-w-[850px]"
                 >
                     <div className="flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-16">
@@ -88,7 +92,7 @@ const Hero = () => {
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 2, duration: 1 }}
+                transition={{ delay: 1.5, duration: 1 }}
                 className="absolute bottom-12 left-12 z-20"
             >
                 <div className="flex items-center space-x-6">

@@ -1,13 +1,40 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useRef, useState, useEffect, useLayoutEffect } from 'react';
+import gsap, { fadeInUp } from '../utils/gsapAnimations';
 import { Play, Pause } from 'lucide-react';
 
-const VideoCard = ({ src, label, yTranslate }) => {
+const VideoCard = ({ src, label, index }) => {
     const videoRef = useRef(null);
+    const cardRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(true);
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
+
+    useLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            // Reveal animation
+            fadeInUp(cardRef.current, {
+                delay: index * 0.2,
+                scrollTrigger: {
+                    trigger: cardRef.current,
+                    start: "top 85%",
+                }
+            });
+
+            // Parallax effect on the video itself
+            gsap.to(videoRef.current, {
+                y: 30,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: cardRef.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+        }, cardRef);
+        return () => ctx.revert();
+    }, [index]);
 
     useEffect(() => {
         const video = videoRef.current;
@@ -49,8 +76,8 @@ const VideoCard = ({ src, label, yTranslate }) => {
     };
 
     return (
-        <div className="flex flex-col space-y-8 w-full">
-            {/* Header Label - Centered and Clean */}
+        <div ref={cardRef} className="reveal flex flex-col space-y-8 w-full gpu-accel">
+            {/* Header Label */}
             <div className="text-center space-y-3">
                 <h4 className="text-2xl md:text-3xl font-light text-[#333F48] tracking-tight uppercase">
                     {label}
@@ -59,11 +86,10 @@ const VideoCard = ({ src, label, yTranslate }) => {
             </div>
 
             {/* Video Container */}
-            <motion.div
-                style={{ y: yTranslate }}
+            <div
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
-                className="group relative w-full h-[300px] md:h-[450px] rounded-[40px] overflow-hidden shadow-2xl border border-black/5 bg-black"
+                className="group relative w-full h-[300px] md:h-[450px] rounded-[40px] overflow-hidden shadow-premium border border-black/5 bg-black"
             >
                 <video
                     ref={videoRef}
@@ -71,17 +97,15 @@ const VideoCard = ({ src, label, yTranslate }) => {
                     muted
                     loop
                     playsInline
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                    className="w-full h-full object-cover will-animate scale-110"
                 >
                     <source src={src} type="video/mp4" />
                 </video>
 
-
-
                 {/* Floating Play/Pause Button */}
                 <button
                     onClick={togglePlay}
-                    className={`absolute bottom-8 right-8 z-30 w-14 h-14 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-2xl border border-white/20 hover:bg-white/30 transition-all duration-500 transform ${isHovered ? 'scale-100 translate-y-0' : 'scale-90 translate-y-2 opacity-0'}`}
+                    className={`absolute bottom-8 right-8 z-30 w-14 h-14 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-2xl border border-white/20 hover:bg-white/30 transition-all duration-500 transform ${isHovered ? 'scale-100 translate-y-0 opacity-100' : 'scale-90 translate-y-2 opacity-0'}`}
                 >
                     {isPlaying ? (
                         <Pause size={20} className="text-white fill-white" />
@@ -90,9 +114,8 @@ const VideoCard = ({ src, label, yTranslate }) => {
                     )}
                 </button>
 
-                {/* Gradient Overlay for bottom depth */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60 pointer-events-none" />
-            </motion.div>
+            </div>
 
             {/* YouTube Style Seek Bar & Controls */}
             <div className="px-4 py-2 space-y-4">
@@ -121,8 +144,7 @@ const VideoCard = ({ src, label, yTranslate }) => {
                 </div>
             </div>
 
-            <style dangerouslySetInnerHTML={{
-                __html: `
+            <style>{`
                 .youtube-range::-webkit-slider-thumb {
                     -webkit-appearance: none;
                     appearance: none;
@@ -145,43 +167,35 @@ const VideoCard = ({ src, label, yTranslate }) => {
                     cursor: pointer;
                     border: none;
                 }
-            `}} />
+            `}</style>
         </div>
     );
 };
 
 const Transformations = () => {
     const sectionRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: sectionRef,
-        offset: ["start end", "end start"]
-    });
+    const titleRef = useRef(null);
+    const subtitleRef = useRef(null);
 
-    // Keeping your requested parallax scroll animations active
-    const yParallax = useTransform(scrollYProgress, [0, 1], [20, -20]);
+    useLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            fadeInUp(subtitleRef.current, { delay: 0 });
+            fadeInUp(titleRef.current, { delay: 0.1 });
+        }, sectionRef);
+        return () => ctx.revert();
+    }, []);
 
     return (
         <section ref={sectionRef} className="relative py-32 md:py-48 px-6 md:px-12 lg:px-24 bg-[#ffffff] overflow-hidden">
             <div className="max-w-[1400px] mx-auto">
                 {/* Section Header */}
                 <div className="text-center mb-24 space-y-6">
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-[#F58220] uppercase tracking-[0.6em] font-bold text-xs"
-                    >
+                    <p ref={subtitleRef} className="reveal text-[#F58220] uppercase tracking-[0.6em] font-bold text-xs">
                         Success Story
-                    </motion.p>
-                    <motion.h3
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="text-5xl md:text-7xl font-light tracking-tight text-[#333F48]"
-                    >
+                    </p>
+                    <h3 ref={titleRef} className="reveal text-5xl md:text-7xl font-light tracking-tight text-[#333F48]">
                         Before & After <span className="serif text-[#F58220] italic">Basement</span>
-                    </motion.h3>
+                    </h3>
                 </div>
 
                 {/* Symmetrical 2-Column Grid */}
@@ -189,12 +203,12 @@ const Transformations = () => {
                     <VideoCard
                         src="/beforebasement.mp4"
                         label="Before Basement"
-                        yTranslate={yParallax}
+                        index={0}
                     />
                     <VideoCard
                         src="/afterproduct.mp4"
                         label="After Product"
-                        yTranslate={yParallax}
+                        index={1}
                     />
                 </div>
             </div>
