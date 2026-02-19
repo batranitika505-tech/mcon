@@ -32,10 +32,10 @@ const Projects = ({ residencyImg, commercialImg }) => {
     });
 
     return (
-        <section id="projects" className="py-32 px-6 md:px-12 lg:px-24 bg-white overflow-hidden">
+        <section id="projects" className="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-12">
-                    <div className="space-y-6">
+                <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
+                    <div className="space-y-3">
                         <motion.h2
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -50,7 +50,7 @@ const Projects = ({ residencyImg, commercialImg }) => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: 0.15, ease: 'easeOut' }}
-                            className="text-5xl md:text-7xl font-bold tracking-tight text-[#333F48]"
+                            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#333F48]"
                         >
                             Legendary <span className="serif text-[#F58220] font-light italic">Manifestations</span>
                         </motion.h3>
@@ -65,7 +65,7 @@ const Projects = ({ residencyImg, commercialImg }) => {
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 1.2, delay: index * 0.1, ease: 'easeOut' }}
-                            className="group relative h-[600px] overflow-hidden bg-white"
+                            className="group relative h-[450px] md:h-[550px] overflow-hidden bg-white"
                         >
                             {/* Background Image with Hover Zoom */}
                             <motion.img
@@ -76,22 +76,22 @@ const Projects = ({ residencyImg, commercialImg }) => {
                                 className="w-full h-full object-cover brightness-[0.85] group-hover:brightness-100 transition-all duration-1000"
                             />
 
-                            {/* Dark Overlay Fade (lighter for white theme) */}
+                            {/* Dark Overlay Fade */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-700" />
 
                             {/* Content Slide Up */}
-                            <div className="absolute inset-0 flex flex-col justify-end p-12 md:p-16">
+                            <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-12">
                                 <motion.div
                                     initial={{ opacity: 0, y: 30 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.8, delay: 0.4 + index * 0.1 }}
-                                    className="space-y-4"
+                                    className="space-y-3"
                                 >
                                     <p className="text-[#F58220] text-[10px] font-bold uppercase tracking-[0.3em]">
                                         {project.category}
                                     </p>
-                                    <h4 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+                                    <h4 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
                                         {project.title}
                                     </h4>
 

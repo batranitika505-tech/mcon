@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 
 const About = ({ image }) => {
     return (
-        <section id="about" className="py-32 px-6 md:px-12 lg:px-24 bg-white overflow-hidden">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+        <section id="about" className="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-white overflow-hidden">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
                 {/* Left Side: Image */}
                 <motion.div
                     initial={{ opacity: 0, x: -60 }}
@@ -28,19 +28,19 @@ const About = ({ image }) => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-                    className="space-y-10"
+                    className="space-y-6"
                 >
-                    <div className="space-y-4">
+                    <div className="space-y-3">
                         <h2 className="text-[#F58220] uppercase tracking-[0.4em] font-bold text-xs">
                             About MCON
                         </h2>
-                        <h3 className="text-5xl md:text-6xl font-bold leading-[1.1] tracking-tight text-[#333F48]">
+                        <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-[#333F48]">
                             Designing <br />
                             <span className="serif text-[#F58220] lowercase italic">custom transformations.</span>
                         </h3>
                     </div>
 
-                    <p className="text-[#555] text-lg leading-relaxed font-light font-sans max-w-xl">
+                    <p className="text-[#555] text-base md:text-lg leading-relaxed font-light font-sans max-w-xl">
                         MCON BUILDRZ is a premier renovation-based firm specializing in custom builds and high-concept structural transformations that evoke inspiration and luxury.
                     </p>
 
@@ -53,7 +53,7 @@ const About = ({ image }) => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.4 }}
-                        className="grid grid-cols-2 gap-8 pt-6"
+                        className="grid grid-cols-2 gap-x-8 gap-y-4 pt-4"
                     >
                         {['Expert Engineering', 'Sustainable Design', 'Premium Materials', 'On-time Delivery'].map((item) => (
                             <div key={item} className="flex items-center space-x-3">
@@ -63,7 +63,7 @@ const About = ({ image }) => {
                         ))}
                     </motion.div>
 
-                    <div className="pt-10">
+                    <div className="pt-6">
                         <button className="flex items-center space-x-6 group">
                             <span className="text-[#333F48] font-bold uppercase tracking-[0.3em] text-[10px]">Explore our journey</span>
                             <div className="h-[1px] w-20 bg-[#F58220] group-hover:w-32 transition-all duration-700 ease-[0.22, 1, 0.36, 1]" />

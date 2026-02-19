@@ -76,7 +76,7 @@ const VideoCard = ({ src, label, index }) => {
     };
 
     return (
-        <div ref={cardRef} className="reveal flex flex-col space-y-8 w-full gpu-accel">
+        <div ref={cardRef} className="reveal flex flex-col space-y-4 w-full gpu-accel">
             {/* Header Label */}
             <div className="text-center space-y-3">
                 <h4 className="text-2xl md:text-3xl font-light text-[#333F48] tracking-tight uppercase">
@@ -186,20 +186,20 @@ const Transformations = () => {
     }, []);
 
     return (
-        <section ref={sectionRef} className="relative py-32 md:py-48 px-6 md:px-12 lg:px-24 bg-[#ffffff] overflow-hidden">
+        <section ref={sectionRef} className="relative py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-[#ffffff] overflow-hidden">
             <div className="max-w-[1400px] mx-auto">
                 {/* Section Header */}
-                <div className="text-center mb-24 space-y-6">
+                <div className="text-center mb-12 space-y-2">
                     <p ref={subtitleRef} className="reveal text-[#F58220] uppercase tracking-[0.6em] font-bold text-xs">
                         Success Story
                     </p>
-                    <h3 ref={titleRef} className="reveal text-5xl md:text-7xl font-light tracking-tight text-[#333F48]">
+                    <h3 ref={titleRef} className="reveal text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-[#333F48]">
                         Before & After <span className="serif text-[#F58220] italic">Basement</span>
                     </h3>
                 </div>
 
                 {/* Symmetrical 2-Column Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 lg:gap-32 items-start justify-items-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start justify-items-center">
                     <VideoCard
                         src="/beforebasement.mp4"
                         label="Before Basement"

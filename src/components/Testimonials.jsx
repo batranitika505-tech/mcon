@@ -34,7 +34,7 @@ const Testimonials = () => {
     }, []);
 
     return (
-        <section className="section-padding bg-white relative overflow-hidden">
+        <section className="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-white relative overflow-hidden">
             {/* Decorative Background Icon */}
             <Quote className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-black/5 w-[400px] h-[400px]" />
 
@@ -42,9 +42,9 @@ const Testimonials = () => {
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    className="text-[#F58220] mb-12 flex justify-center"
+                    className="text-[#F58220] mb-6 flex justify-center"
                 >
-                    <Quote size={48} />
+                    <Quote size={32} md={48} />
                 </motion.div>
 
                 <div className="h-[300px] flex items-center justify-center">
@@ -57,7 +57,7 @@ const Testimonials = () => {
                             transition={{ duration: 0.5 }}
                             className="space-y-8"
                         >
-                            <p className="text-2xl md:text-3xl font-light italic leading-relaxed text-[#444]">
+                            <p className="text-xl md:text-2xl lg:text-3xl font-light italic leading-relaxed text-[#444] px-4">
                                 "{testimonials[index].text}"
                             </p>
 
@@ -75,7 +75,7 @@ const Testimonials = () => {
                 </div>
 
                 {/* Dots */}
-                <div className="flex justify-center space-x-3 mt-12">
+                <div className="flex justify-center space-x-3 mt-8">
                     {testimonials.map((_, i) => (
                         <button
                             key={i}

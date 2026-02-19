@@ -27,15 +27,15 @@ const services = [
 
 const Services = () => {
     return (
-        <section id="services" className="py-32 px-6 md:px-12 lg:px-24 bg-[#f9f9f9]">
+        <section id="services" className="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-[#f9f9f9]">
             <div className="max-w-7xl mx-auto">
-                <div className="mb-24">
+                <div className="mb-12">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, ease: 'easeOut' }}
-                        className="text-[#F58220] uppercase tracking-[0.4em] font-bold text-xs mb-8"
+                        className="text-[#F58220] uppercase tracking-[0.4em] font-bold text-xs mb-4"
                     >
                         Our Capabilities
                     </motion.h2>
@@ -44,7 +44,7 @@ const Services = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.15, ease: 'easeOut' }}
-                        className="text-5xl md:text-7xl font-bold tracking-tight text-[#333F48]"
+                        className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#333F48]"
                     >
                         Precision <span className="serif text-[#F58220] font-light italic">&</span> Expertise
                     </motion.h3>
@@ -58,13 +58,13 @@ const Services = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.9, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
-                            className="group relative p-12 bg-white hover:bg-[#F58220] transition-all duration-700 flex flex-col justify-between h-full min-h-[400px]"
+                            className="group relative p-8 md:p-10 bg-white hover:bg-[#F58220] transition-all duration-700 flex flex-col justify-between h-full min-h-[300px] md:min-h-[350px]"
                         >
-                            <div className="space-y-8">
+                            <div className="space-y-6">
                                 <div className="text-[#F58220] group-hover:text-white group-hover:scale-110 transition-all duration-700 ease-out origin-left">
                                     {service.icon}
                                 </div>
-                                <div className="space-y-4">
+                                <div className="space-y-2">
                                     <h4 className="text-2xl font-bold tracking-tight text-[#333F48] group-hover:text-white transition-colors duration-500">{service.title}</h4>
                                     <p className="text-[#666] group-hover:text-white/80 font-light leading-relaxed text-sm transition-colors duration-500">
                                         {service.description}
@@ -72,7 +72,7 @@ const Services = () => {
                                 </div>
                             </div>
 
-                            <div className="space-y-6">
+                            <div className="space-y-4 pt-6">
                                 <div className="h-[1px] w-12 bg-black/10 group-hover:w-full group-hover:bg-white transition-all duration-700 ease-out" />
                                 <span className="text-[10px] uppercase tracking-widest font-black text-black/5 group-hover:text-white/10 transition-colors duration-700 block">
                                     Service 0{index + 1}

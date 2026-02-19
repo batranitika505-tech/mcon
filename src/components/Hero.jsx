@@ -48,7 +48,7 @@ const Hero = () => {
             </div>
 
             {/* Content Container */}
-            <div className="relative z-10 w-full h-full flex items-end justify-end pr-0 pb-20 md:pb-32 pl-6 md:pl-12 lg:pl-24">
+            <div className="relative z-10 w-full h-full flex items-center md:items-end justify-center md:justify-end pr-0 pb-12 md:pb-32 px-6 md:pl-12 lg:pl-24">
 
                 {/* Floating Box - Snappier revealed after Intro */}
                 <motion.div
@@ -59,20 +59,20 @@ const Hero = () => {
                         delay: 0.3, // Shorter delay since Intro is faster
                         ease: [0.22, 1, 0.36, 1]
                     }}
-                    className="bg-white p-8 md:p-10 lg:p-12 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] max-w-full lg:max-w-[850px]"
+                    className="bg-white p-6 md:p-10 lg:p-12 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] max-w-full lg:max-w-[850px] mx-auto md:mx-0"
                 >
-                    <div className="flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-16">
+                    <div className="flex flex-col lg:flex-row lg:items-center gap-6 md:gap-10 lg:gap-16">
                         {/* Refined Typography */}
                         <div className="flex-1">
-                            <h2 className="text-[1.8rem] md:text-[2.4rem] lg:text-[3.2rem] font-light leading-[1.1] tracking-tight text-[#333F48]">
+                            <h2 className="text-[1.5rem] sm:text-[1.8rem] md:text-[2.4rem] lg:text-[3.2rem] font-light leading-[1.1] tracking-tight text-[#333F48]">
                                 Redefining <br />
                                 <span className="text-[#F58220]">spaces</span> through <br />
                                 custom renovations.
                             </h2>
                         </div>
 
-                        <div className="w-full lg:w-[320px] flex flex-col space-y-8">
-                            <p className="text-[#666] text-sm md:text-base font-light leading-relaxed">
+                        <div className="w-full lg:w-[320px] flex flex-col space-y-6 md:space-y-8">
+                            <p className="text-[#666] text-xs sm:text-sm md:text-base font-light leading-relaxed">
                                 Specializing in high-end renovations and custom builds. We bring new life to every structure we touch with precision and artistry.
                             </p>
 
@@ -88,12 +88,12 @@ const Hero = () => {
                 </motion.div>
             </div>
 
-            {/* Minimal Scroll Indicator */}
+            {/* Minimal Scroll Indicator - Hidden on Mobile */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5, duration: 1 }}
-                className="absolute bottom-12 left-12 z-20"
+                className="absolute bottom-12 left-12 z-20 hidden md:block"
             >
                 <div className="flex items-center space-x-6">
                     <div className="w-[1px] h-24 bg-white/20 relative overflow-hidden">
