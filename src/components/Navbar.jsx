@@ -67,7 +67,7 @@ const Navbar = () => {
                         transition={{ duration: 1.2, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
                         className="flex items-center"
                     >
-                        <Logo className="h-10 sm:h-12 md:h-28" light={!scrolled} />
+                        <Logo className="h-12 sm:h-16 md:h-28" light={!scrolled} />
                     </motion.div>
 
                     <div className="flex items-center space-x-12">
@@ -115,7 +115,7 @@ const Navbar = () => {
                                 <X className="w-8 h-8 md:w-10 md:h-10" strokeWidth={1.5} />
                             </button>
 
-                            <nav className="flex flex-col space-y-4 sm:space-y-6 md:space-y-8">
+                            <nav className="flex flex-col space-y-8 sm:space-y-10 md:space-y-8">
                                 {navLinks.map((link, i) => (
                                     <motion.div
                                         key={link.name}
@@ -128,8 +128,8 @@ const Navbar = () => {
                                             onClick={() => setIsOpen(false)}
                                             className="group flex items-center space-x-8"
                                         >
-                                            <span className={`text-[9px] sm:text-[10px] md:text-sm font-bold text-[#F58220] transition-opacity ${activeSection === link.id ? 'opacity-100' : 'opacity-30 group-hover:opacity-100'}`}>0{i + 1}</span>
-                                            <span className={`text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-light transition-all duration-300 group-hover:translate-x-4 ${activeSection === link.id ? 'text-[#F58220]' : 'text-[#333F48] group-hover:text-[#F58220]'}`}>
+                                            <span className={`text-[10px] sm:text-[12px] md:text-sm font-bold text-[#F58220] transition-opacity ${activeSection === link.id ? 'opacity-100' : 'opacity-40 group-hover:opacity-100'}`}>0{i + 1}</span>
+                                            <span className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light transition-all duration-300 group-hover:translate-x-4 ${activeSection === link.id ? 'text-[#F58220]' : 'text-[#333F48] group-hover:text-[#F58220]'}`}>
                                                 {link.name}
                                             </span>
                                         </a>
