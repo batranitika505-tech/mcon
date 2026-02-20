@@ -22,9 +22,9 @@ const Contact = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 }}
-                            className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 text-[#333F48]"
+                            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-[#333F48]"
                         >
-                            Let's Build Something <br />
+                            Let's Build Something <br className="hidden sm:block" />
                             <span className="serif text-[#F58220] italic">Exceptional.</span>
                         </motion.h3>
                         <p className="text-[#555] text-lg mb-8 max-w-md font-light">

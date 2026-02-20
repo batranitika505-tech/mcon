@@ -44,7 +44,7 @@ const Services = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.15, ease: 'easeOut' }}
-                        className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#333F48]"
+                        className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#333F48]"
                     >
                         Precision <span className="serif text-[#F58220] font-light italic">&</span> Expertise
                     </motion.h3>

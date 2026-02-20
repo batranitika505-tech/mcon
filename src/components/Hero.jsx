@@ -64,9 +64,9 @@ const Hero = () => {
                     <div className="flex flex-col lg:flex-row lg:items-center gap-6 md:gap-10 lg:gap-16">
                         {/* Refined Typography */}
                         <div className="flex-1">
-                            <h2 className="text-[1.5rem] sm:text-[1.8rem] md:text-[2.4rem] lg:text-[3.2rem] font-light leading-[1.1] tracking-tight text-[#333F48]">
-                                Redefining <br />
-                                <span className="text-[#F58220]">spaces</span> through <br />
+                            <h2 className="text-[1.3rem] xs:text-[1.5rem] sm:text-[1.8rem] md:text-[2.4rem] lg:text-[3.2rem] font-light leading-[1.2] md:leading-[1.1] tracking-tight text-[#333F48]">
+                                Redefining <br className="hidden xs:block" />
+                                <span className="text-[#F58220]">spaces</span> through <br className="hidden xs:block" />
                                 custom renovations.
                             </h2>
                         </div>

@@ -89,7 +89,7 @@ const VideoCard = ({ src, label, index }) => {
             <div
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
-                className="group relative w-full h-[300px] md:h-[450px] rounded-[40px] overflow-hidden shadow-premium border border-black/5 bg-black"
+                className="group relative w-full h-[250px] sm:h-[300px] md:h-[450px] rounded-[24px] md:rounded-[40px] overflow-hidden shadow-premium border border-black/5 bg-black"
             >
                 <video
                     ref={videoRef}

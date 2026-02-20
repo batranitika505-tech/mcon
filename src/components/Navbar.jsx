@@ -50,7 +50,7 @@ const Navbar = () => {
                         transition={{ duration: 1.2, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
                         className="flex items-center"
                     >
-                        <Logo className="h-16 md:h-28" light={!scrolled} />
+                        <Logo className="h-10 sm:h-12 md:h-28" light={!scrolled} />
                     </motion.div>
 
                     <div className="flex items-center space-x-12">
@@ -93,9 +93,9 @@ const Navbar = () => {
                         <div className="w-full md:w-1/2 bg-white flex flex-col justify-center px-12 md:px-24 relative">
                             <button
                                 onClick={() => setIsOpen(false)}
-                                className="absolute top-12 right-12 text-[#333F48] hover:text-[#F58220] transition-colors p-4"
+                                className="absolute top-8 right-8 md:top-12 md:right-12 text-[#333F48] hover:text-[#F58220] transition-colors p-4"
                             >
-                                <X size={32} strokeWidth={1.5} />
+                                <X size={28} md={32} strokeWidth={1.5} />
                             </button>
 
                             <nav className="space-y-6 md:space-y-8">
@@ -111,8 +111,8 @@ const Navbar = () => {
                                             onClick={() => setIsOpen(false)}
                                             className="group flex items-center space-x-8"
                                         >
-                                            <span className="text-xs md:text-sm font-bold text-[#F58220] opacity-40 group-hover:opacity-100 transition-opacity">0{i + 1}</span>
-                                            <span className="text-4xl md:text-6xl lg:text-7xl font-light text-[#333F48] group-hover:text-[#F58220] transition-all duration-300 group-hover:translate-x-4">
+                                            <span className="text-[10px] md:text-sm font-bold text-[#F58220] opacity-40 group-hover:opacity-100 transition-opacity">0{i + 1}</span>
+                                            <span className="text-3xl md:text-6xl lg:text-7xl font-light text-[#333F48] group-hover:text-[#F58220] transition-all duration-300 group-hover:translate-x-4">
                                                 {link.name}
                                             </span>
                                         </a>

@@ -26,10 +26,10 @@ const StatCounter = ({ value, label }) => {
     return (
         <div ref={ref} className="text-center">
             <div className="flex justify-center items-end mb-2">
-                <motion.span className="text-4xl md:text-5xl lg:text-6xl font-normal text-[#333F48] tracking-tight">
+                <motion.span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-[#333F48] tracking-tight">
                     {displayValue}
                 </motion.span>
-                <span className="text-xl md:text-2xl lg:text-3xl font-bold text-[#F58220] ml-1 mb-2">{suffix}</span>
+                <span className="text-lg md:text-2xl lg:text-3xl font-bold text-[#F58220] ml-1 mb-2">{suffix}</span>
             </div>
             <p className="text-[#666] uppercase tracking-[0.3em] text-[9px] font-bold">{label}</p>
         </div>
@@ -63,7 +63,7 @@ const WhyChooseUs = () => {
     return (
         <section className="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-[#f9f9f9] overflow-hidden">
             <div className="max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
                     {reasons.map((reason, index) => (
                         <motion.div
                             key={reason.title}
@@ -87,7 +87,7 @@ const WhyChooseUs = () => {
                 </div>
 
                 {/* Dynamic Stats Row with Count Up */}
-                <div className="mt-16 pt-16 border-t border-black/5 grid grid-cols-2 lg:grid-cols-4 gap-12">
+                <div className="mt-16 pt-16 border-t border-black/5 grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
                     <StatCounter value="450+" label="Projects Built" />
                     <StatCounter value="1200" label="Happy Clients" />
                     <StatCounter value="35" label="Awards Won" />

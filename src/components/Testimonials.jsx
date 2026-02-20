@@ -44,10 +44,10 @@ const Testimonials = () => {
                     whileInView={{ opacity: 1 }}
                     className="text-[#F58220] mb-6 flex justify-center"
                 >
-                    <Quote size={32} md={48} />
+                    <Quote size={40} className="md:w-12 md:h-12" />
                 </motion.div>
 
-                <div className="h-[300px] flex items-center justify-center">
+                <div className="min-h-[300px] md:h-[300px] flex items-center justify-center py-8">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={index}
@@ -57,7 +57,7 @@ const Testimonials = () => {
                             transition={{ duration: 0.5 }}
                             className="space-y-8"
                         >
-                            <p className="text-xl md:text-2xl lg:text-3xl font-light italic leading-relaxed text-[#444] px-4">
+                            <p className="text-lg sm:text-2xl md:text-3xl font-light italic leading-relaxed text-[#444] px-4">
                                 "{testimonials[index].text}"
                             </p>
 

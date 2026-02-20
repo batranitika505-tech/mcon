@@ -34,8 +34,8 @@ const About = ({ image }) => {
                         <h2 className="text-[#F58220] uppercase tracking-[0.4em] font-bold text-xs">
                             About MCON
                         </h2>
-                        <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-[#333F48]">
-                            Designing <br />
+                        <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.2] md:leading-[1.1] tracking-tight text-[#333F48]">
+                            Designing <br className="hidden sm:block" />
                             <span className="serif text-[#F58220] lowercase italic">custom transformations.</span>
                         </h3>
                     </div>
