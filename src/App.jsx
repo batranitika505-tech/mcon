@@ -23,6 +23,7 @@ import project2Img from './assets/project2.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// App remains a single page for smooth scroll, but we'll use window.location.hash for active state logic in Navbar.
 function App() {
   const [showIntro, setShowIntro] = useState(true);
   const [contentVisible, setContentVisible] = useState(false);
@@ -68,8 +69,8 @@ function App() {
           <Hero backgroundImage={heroImg} />
           <About image={aboutImg} />
           <Services />
-          <Projects residencyImg={project1Img} commercialImg={project2Img} />
           <Transformations />
+          <Projects residencyImg={project1Img} commercialImg={project2Img} />
           <WhyChooseUs />
           <Testimonials />
           <Contact />

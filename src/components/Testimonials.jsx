@@ -44,7 +44,7 @@ const Testimonials = () => {
                     whileInView={{ opacity: 1 }}
                     className="text-[#F58220] mb-6 flex justify-center"
                 >
-                    <Quote size={40} className="md:w-12 md:h-12" />
+                    <Quote className="w-10 h-10 md:w-12 md:h-12" />
                 </motion.div>
 
                 <div className="min-h-[300px] md:h-[300px] flex items-center justify-center py-8">

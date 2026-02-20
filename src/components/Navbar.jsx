@@ -7,9 +7,26 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
+    const [activeSection, setActiveSection] = useState('home');
+
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
+
+            // Scroll Spy Logic
+            const sections = ['home', 'about', 'services', 'before-after-basement', 'contact'];
+            const scrollPos = window.scrollY + 200;
+
+            for (const section of sections) {
+                const element = document.getElementById(section === 'home' ? 'hero' : section);
+                if (element) {
+                    const top = element.offsetTop;
+                    const height = element.offsetHeight;
+                    if (scrollPos >= top && scrollPos < top + height) {
+                        setActiveSection(section);
+                    }
+                }
+            }
         };
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
@@ -26,11 +43,11 @@ const Navbar = () => {
     }, [isOpen]);
 
     const navLinks = [
-        { name: 'Home', href: '#' },
-        { name: 'About', href: '#about' },
-        { name: 'Services', href: '#services' },
-        { name: 'Projects', href: '#projects' },
-        { name: 'Contact', href: '#contact' },
+        { name: 'Home', href: '#', id: 'home' },
+        { name: 'About', href: '#about', id: 'about' },
+        { name: 'Services', href: '#services', id: 'services' },
+        { name: 'Projects', href: '#before-after-basement', id: 'before-after-basement' },
+        { name: 'Contact', href: '#contact', id: 'contact' },
     ];
 
     return (
@@ -76,7 +93,7 @@ const Navbar = () => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="fixed inset-0 bg-white z-[9999] flex flex-col md:flex-row h-screen w-screen overflow-hidden"
+                        className="fixed inset-0 bg-white z-[9999] flex flex-col md:flex-row h-[100dvh] w-full"
                     >
                         {/* Left Side: Brand Panel */}
                         <div className="hidden md:flex w-1/2 bg-[#f4f4f4] items-center justify-center p-24 border-r border-black/5">
@@ -90,15 +107,15 @@ const Navbar = () => {
                         </div>
 
                         {/* Right Side: Navigation Panel */}
-                        <div className="w-full md:w-1/2 bg-white flex flex-col justify-center px-12 md:px-24 relative">
+                        <div className="w-full md:w-1/2 bg-white flex flex-col justify-between py-24 md:py-0 md:justify-center px-10 sm:px-12 md:px-24 relative overflow-y-auto">
                             <button
                                 onClick={() => setIsOpen(false)}
-                                className="absolute top-8 right-8 md:top-12 md:right-12 text-[#333F48] hover:text-[#F58220] transition-colors p-4"
+                                className="absolute top-6 right-6 md:top-12 md:right-12 text-[#333F48] hover:text-[#F58220] transition-colors p-3"
                             >
-                                <X size={28} md={32} strokeWidth={1.5} />
+                                <X className="w-8 h-8 md:w-10 md:h-10" strokeWidth={1.5} />
                             </button>
 
-                            <nav className="space-y-6 md:space-y-8">
+                            <nav className="flex flex-col space-y-4 sm:space-y-6 md:space-y-8">
                                 {navLinks.map((link, i) => (
                                     <motion.div
                                         key={link.name}
@@ -111,8 +128,8 @@ const Navbar = () => {
                                             onClick={() => setIsOpen(false)}
                                             className="group flex items-center space-x-8"
                                         >
-                                            <span className="text-[10px] md:text-sm font-bold text-[#F58220] opacity-40 group-hover:opacity-100 transition-opacity">0{i + 1}</span>
-                                            <span className="text-3xl md:text-6xl lg:text-7xl font-light text-[#333F48] group-hover:text-[#F58220] transition-all duration-300 group-hover:translate-x-4">
+                                            <span className={`text-[9px] sm:text-[10px] md:text-sm font-bold text-[#F58220] transition-opacity ${activeSection === link.id ? 'opacity-100' : 'opacity-30 group-hover:opacity-100'}`}>0{i + 1}</span>
+                                            <span className={`text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-light transition-all duration-300 group-hover:translate-x-4 ${activeSection === link.id ? 'text-[#F58220]' : 'text-[#333F48] group-hover:text-[#F58220]'}`}>
                                                 {link.name}
                                             </span>
                                         </a>
@@ -120,9 +137,9 @@ const Navbar = () => {
                                 ))}
                             </nav>
 
-                            <div className="mt-20 flex flex-col space-y-4">
-                                <p className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#999]">Get in touch</p>
-                                <a href="mailto:hello@mconbuildrz.com" className="text-lg font-light text-[#333F48] hover:text-[#F58220] transition-colors line-clamp-1">hello@mconbuildrz.com</a>
+                            <div className="mt-12 md:mt-20 flex flex-col space-y-3 sm:space-y-4">
+                                <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.4em] font-bold text-[#999]">Get in touch</p>
+                                <a href="mailto:hello@mconbuildrz.com" className="text-base sm:text-lg font-light text-[#333F48] hover:text-[#F58220] transition-colors line-clamp-1 italic">hello@mconbuildrz.com</a>
                             </div>
                         </div>
                     </motion.div>

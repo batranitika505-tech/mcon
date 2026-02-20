@@ -32,7 +32,7 @@ const Projects = ({ residencyImg, commercialImg }) => {
     });
 
     return (
-        <section id="projects" className="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-white overflow-hidden">
+        <section id="portfolio" className="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
                     <div className="space-y-3">

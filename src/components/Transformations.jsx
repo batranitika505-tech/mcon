@@ -186,7 +186,7 @@ const Transformations = () => {
     }, []);
 
     return (
-        <section ref={sectionRef} className="relative py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-[#ffffff] overflow-hidden">
+        <section id="before-after-basement" ref={sectionRef} className="relative py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-[#ffffff] overflow-hidden">
             <div className="max-w-[1400px] mx-auto">
                 {/* Section Header */}
                 <div className="text-center mb-12 space-y-2">

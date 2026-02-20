@@ -18,7 +18,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="relative h-screen w-full flex items-center overflow-hidden bg-white">
+        <section id="hero" className="relative h-screen w-full flex items-center overflow-hidden bg-white">
             {/* Background Sliding Carousel */}
             <div className="absolute inset-0 z-0 bg-black">
                 <AnimatePresence initial={false} mode="popLayout">
