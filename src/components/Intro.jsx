@@ -86,12 +86,12 @@ const Intro = ({ onComplete }) => {
                         transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
                         className="flex flex-col items-center z-[210] relative text-[#333F48]"
                     >
-                        <Logo className="h-24 sm:h-32 md:h-72 mb-8 md:mb-10 max-w-[90vw]" light={false} />
+                        <Logo className="h-32 sm:h-40 md:h-72 mb-10 md:mb-12 max-w-[95vw]" light={false} />
                         <motion.p
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.8 }}
-                            className="text-[#F58220] uppercase font-bold tracking-[0.2em] md:tracking-[0.6em] text-[8px] xs:text-[9px] md:text-sm text-center px-4 max-w-[85vw] mx-auto"
+                            className="text-[#F58220] uppercase font-bold tracking-[0.2em] md:tracking-[0.6em] text-[10px] sm:text-[11px] md:text-sm text-center px-4 max-w-[85vw] mx-auto"
                         >
                             Specialized in High-End Renovations
                         </motion.p>

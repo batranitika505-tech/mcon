@@ -93,7 +93,7 @@ const Navbar = () => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="fixed inset-0 bg-white z-[9999] flex flex-col md:flex-row h-[100dvh] w-full"
+                        className="fixed inset-0 bg-white z-[9999] flex flex-col md:flex-row overflow-hidden overscroll-none"
                     >
                         {/* Left Side: Brand Panel */}
                         <div className="hidden md:flex w-1/2 bg-[#f4f4f4] items-center justify-center p-24 border-r border-black/5">
